@@ -1,0 +1,963 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        
+        
+        .sidebar h5 {
+            margin-top: 0;
+        }
+
+        .user-info p {
+            margin: 0 0 10px;
+        }
+
+        .user-info p strong {
+            font-weight: bold;
+        }
+
+        .outer-img-div {
+            width: 250px;
+            height: 250px;
+            border: 6px solid #00284D;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-left: 19px;
+        }
+
+        #userImage {
+            /* margin-top: 14px; */
+            border-radius: 50%;
+            width: 220px;
+            height: 220px;
+            object-fit: cover;
+        }
+
+        .user-info {
+            margin-top: 20px;
+        }
+
+        .user-info-p {
+            color: white;
+            font-size: 18px;
+        }
+
+        .user-info-p i {
+            margin-right: 10px;
+        }
+
+        @media (max-width: 1430px) {
+    #sidebar {
+        min-height: 100vh;
+    }
+}
+
+        #sidebar {
+        min-width: 200px;
+        max-width: 350px;
+        background: #05152A;
+        color: white;
+        min-height: 100vh;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        overflow-y: auto;
+        transition: all 0.3s;
+        z-index: 999;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        align-content: center;
+        }
+
+        #sidebar .sidebar-header {
+            width: 300px;
+            padding: 20px;
+            background: #05152A;
+            text-align: center;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+
+        #sidebar ul.components {
+            border-top: 1px solid #063560;
+            margin-top: 20px;
+            border-bottom: 1px solid #063560;
+            width: 300px;
+            padding: 10px 0;
+            
+        }
+
+        #sidebar ul p {
+            color: #fff;
+            padding: 10px;
+        }
+
+        #sidebar ul li a {
+            text-decoration: none;
+            padding: 10px;
+            font-size: 1.1em;
+            display: block;
+            color: white;
+        }
+        #sidebar ul i {
+            margin-right: 10px;
+            margin-left: 10px;
+        }
+
+        #sidebar ul li a:hover {
+            color: white;
+            background: #063560;
+        }
+
+        #sidebar ul li.active > a {
+            background: #041D35; 
+            color: white;
+        }
+
+        #sidebar ul li.active > a:hover {
+            background: #063560; 
+            color: white;
+        }
+
+        #sidebar ul li ul a {
+            font-size: 0.9em !important;
+            padding-left: 30px !important;
+            background-color: #063560;
+            transition: background 0.3s;
+        }
+
+        #sidebar ul li ul a:hover {
+            background-color: #041D35;
+            color: white;
+        }
+
+
+        #sidebar ul li ul a {
+            margin: 5px 0;
+            padding: 10px;
+            border-radius: 4px;
+        }
+
+        #sidebar ul li ul a:hover {
+            border-top: 2px solid #0788FF; 
+            border-bottom: 2px solid #0788FF; 
+            background-color: #041D35; 
+            color: white;
+            border-color:#0788FF;
+        }
+
+        .content {
+            margin-left: 350px;
+            margin-top: 20px;
+            padding: 20px;
+        }
+
+        .canvas-div {
+            width: 700px;
+            height: 730px;
+            display: flex;
+            flex-direction: column;
+            padding-left: 20px;
+            margin-top: -20px;
+        }
+
+        #weightChart, #bpChart {
+            width: 468px !important;
+            height: 300px !important;
+            border: 2px solid #0B2A47;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .tracking-box{
+            height: 300px !important;
+        }
+
+        .heading-div {
+            margin-left: 10px;
+            display: flex;
+            gap: 600px;
+            font-size: 20px;
+            font-weight: bold;
+            color: #041D35;
+        }
+
+        .below-div {
+            color: black;
+            display: flex;
+            align-items: center;
+            align-content: center;
+            justify-content: space-between;
+        }
+
+       
+
+        .tracking-heart{
+            margin-right: 50px;
+            margin-top: 50px; 
+            border: 2px solid #0B2A47;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+
+        }
+        .tracking-Lung{
+            margin-right: 50px;
+            margin-top: 60px; 
+            border: 2px solid #0B2A47;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+
+        }
+        .data-div {
+            width: 700px;
+            padding: 20px;
+            background-color: #fff;
+            border: 2px solid #0B2A47;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .health-head {
+            font-size: 30px;
+            color: #041D35;
+        }
+
+        .outetes-div {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+        }
+
+        .pendingApp {
+            border: 2px solid #0B2A47;
+            width: 400px;
+            height: 400px;
+            padding: 15px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            margin-left: 2%;
+            margin-top: 3%;
+        }
+
+        .add-health-data {
+            width: 700px;
+            padding: 20px;
+            background-color: #fff;
+            border: 2px solid #0B2A47;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            margin-top: 3%;
+            margin-left: 1%;
+        }
+
+        .form-label {
+            font-weight: bold;
+        }
+
+        /* Buttons */
+        button {
+            background-color: #041D35;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #03203C;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideIn {
+            0% {
+                transform: translateX(-50px);
+            }
+            100% {
+                transform: translateX(0);
+            }
+        }
+
+
+@media (max-width: 320px) {
+  .tracking-box {
+    display: none !important;
+  }
+}
+
+        @media (max-width: 450px) and (min-width: 200px){
+            .d-flex.flex-row {
+                flex-direction: column !important;
+                align-items: center !important;
+            }
+
+            .add-health-data,
+            .pendingApp {
+                margin-left: 190% !important;
+                min-width: 800px !important;
+                max-width: 2000px  !important;
+                margin-bottom: 30px;
+                margin-right: 10% !important;
+            }
+        }
+
+
+
+        @media (max-width: 500px) and (min-width: 450px){
+            .d-flex.flex-row {
+                flex-direction: column !important;
+                align-items: center !important;
+            }
+
+            .add-health-data,
+            .pendingApp {
+                margin-left: 120% !important;
+                min-width: 800px !important;
+                max-width: 2000px  !important;
+                margin-bottom: 30px;
+            }
+        }
+
+        @media (max-width: 649px) and (min-width: 500px) {
+            .d-flex.flex-row {
+                flex-direction: column !important;
+                align-items: center !important;
+            }
+
+            .add-health-data,
+            .pendingApp {
+                margin-left: 90% !important;
+                min-width: 800px !important;
+                max-width: 2000px  !important;
+                margin-bottom: 30px;
+            }
+        } 
+
+        @media (max-width: 769px) and (min-width: 650px) {
+            .d-flex.flex-row {
+                flex-direction: column !important;
+                align-items: center !important;
+            }
+
+            .add-health-data,
+            .pendingApp {
+                margin-left: 50% !important;
+                min-width: 800px !important;
+                max-width: 2000px  !important;
+                margin-bottom: 30px;
+            }
+        } 
+
+        @media (max-width: 1000px)  and (min-width: 770px){
+            .d-flex.flex-row {
+                flex-direction: column !important;
+                align-items: center !important;
+            }
+
+            .add-health-data, .pendingApp {
+                margin-left: 50% !important;
+                min-width: 800px !important;
+                max-width: 2000px  !important;
+                margin-bottom: 30px;
+            }
+        }
+
+        @media (max-width: 1300px) and (min-width: 1000px){
+
+            .add-health-data{
+                margin-left: 1% !important;
+                min-width: 550px !important;
+                max-width: 2000px  !important;
+            }
+
+            .pendingApp{
+                min-width: 450px !important;
+                max-width: 2000px  !important;
+
+            }
+        }
+
+
+        /* CHATBOT */
+        #chatbot-icon {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  background-color:#0B2A47;
+  color: white;
+  font-size: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+  transition: transform 0.2s, background-color 0.2s;
+}
+
+#chatbot-icon:hover {
+  background-color: #2e8ca8;
+  transform: scale(1.1);
+}
+
+/* Chatbot Container */
+#chatbot-container {
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  width: 350px;
+  height: 450px;
+  background-color: #1f1f1f;
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* Hide Chatbot Initially */
+.hidden {
+  display: none !important;
+}
+
+/* Chatbot Header */
+#chatbot-header {
+  background-color:#0B2A47;
+  color: white;
+  padding: 15px;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 18px;
+}
+
+#close-btn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/* Chatbot Body */
+#chatbot-body {
+  flex: 1;
+  padding: 10px;
+  overflow-y: auto;
+}
+
+/* Chatbot Messages */
+#chatbot-messages {
+  display: flex;
+  flex-direction: column;
+}
+
+.message {
+  margin-bottom: 15px;
+  padding: 12px;
+  border-radius: 8px;
+  max-width: 85%;
+}
+
+.message.user {
+  background-color: #0B2A47;
+  color: white;
+  align-self: flex-end;
+}
+
+.message.bot {
+  background-color: #333;
+  color: white;
+  align-self: flex-start;
+}
+
+/* Input Section */
+#chatbot-input-container {
+  display: flex;
+  padding: 10px;
+  border-top: 1px solid #444;
+  background-color: #2c2c2c;
+}
+
+#chatbot-input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #444;
+  border-radius: 10px;
+  background-color: #333;
+  color: white;
+}
+
+#send-btn {
+  margin-left: 10px;
+  padding: 10px 15px;
+  background-color:#0B2A47;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+#send-btn:hover {
+  background-color: #2e66af4e;
+}
+        
+    </style>
+</head>
+<body>
+
+<div class="toast-container position-fixed top-0 end-0 p-3" style="z-index: 9999;">
+  <% if (notifications && notifications.length > 0) { %>
+    <% notifications.forEach(function(msg) { %>
+      <div class="toast show border-0 animate__animated animate__fadeInDown mb-3"
+           role="alert" aria-live="assertive" aria-atomic="true"
+           style="
+             background-color: #0B2A47;
+             color: #ffffff;
+             border-radius: 16px;
+             min-width: 330px;
+             border: 2px solid #26c6da; /* soft aqua blue border */
+             box-shadow: 0 10px 25px rgba(38, 198, 218, 0.35); /* aqua glow */
+             overflow: hidden;
+           ">
+
+        <!-- Header -->
+        <div class="toast-header d-flex justify-content-between align-items-center"
+             style="
+               background: rgba(255,255,255,0.03);
+               border-bottom: 1px solid rgba(255,255,255,0.08);
+               color: white;
+               font-weight: 600;
+               padding: 10px 16px;
+               width: 100%;
+             ">
+          <strong class="me-auto d-flex align-items-center gap-2">
+            <i class="bi bi-stars fs-5 text-info"></i> Vibe Guard
+          </strong>
+          <div class="d-flex align-items-center gap-3">
+            <small class="text-white-50">Just now</small>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast" aria-label="Close"></button>
+          </div>
+        </div>
+
+        <!-- Body -->
+        <div class="toast-body fw-medium px-4 py-3" style="font-size: 15px;">
+          <%= msg %>
+        </div>
+      </div>
+    <% }); %>
+  <% } %>
+</div>
+
+
+
+    
+    
+
+
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar -->
+            <nav id="sidebar">
+                <div class="sidebar-header">
+                    <h3>Profile</h3>
+                </div>
+            
+                <div class="user-info">
+                    <div class="outer-img-div">
+                        <img id="userImage" alt="User Image" src="/uploads/default.png" />
+
+                    </div>
+                    <p class="user-info-p"><i class="fas fa-user"></i> <strong>Name:</strong> <span id="firstName">Loading...</span></p>
+                    <p class="user-info-p"><i class="fas fa-calendar-alt"></i> <strong>Age:</strong> <span id="age">Loading...</span></p>
+                    <p class="user-info-p"><i class="fas fa-genderless"></i> <strong>Gender:</strong> <span id="gender">Loading...</span></p>
+                </div>
+            
+                <ul class="list-unstyled components">
+                    <li class="active">
+                        <a href="#settingsSubmenu" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                            <i class="fas fa-cogs"></i> Settings
+                        </a>
+                        <ul class="collapse list-unstyled" id="settingsSubmenu">
+
+                            <li><a href="/symptomschecker/read"><i class="fas fa-stethoscope"></i> Symptom Checker</a></li>
+                            <li><a href="/post/posts"><i class="fas fa-book-open"></i> User Stories</a></li>
+                            <li><a href="/doctor-list"><i class="fas fa-sign-out-alt"></i>Find Doctors</a></li>
+                            <li><a href="/feedback/feedback"><i class="fas fa-comments"></i> Feedback</a></li>
+                            <li><a href="/login/profile"><i class="fas fa-user"></i> Profile</a></li>
+                            <li><a href="/user-report/symptom/report"><i class="fas fa-user"></i> Symptom Report</a></li>
+                            <li><a href="/login/logout"><i class="fas fa-sign-out-alt"></i> Log Out</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+
+             <!-- Add Health Data Section -->
+              
+            <div class="col-12 col-md-9 content px-4 py-3">
+  <h2 class="mb-4">Health Tracker</h2>
+
+  <!-- Input Form -->
+  <div class="card shadow-sm mb-4">
+    <div class="card-header  text-white" style="background-color: #00284D;">
+      <strong>Add Health Data</strong>
+    </div>
+    <div class="card-body">
+      <form id="healthDataForm">
+        <div class="row g-3">
+          <div class="col-md-6">
+            <label for="time" class="form-label">Time</label>
+            <input type="datetime-local" class="form-control" id="time" name="time" required>
+          </div>
+          <div class="col-md-6">
+            <label for="weight" class="form-label">Weight (kg)</label>
+            <input type="number" class="form-control" id="weight" name="weight" required>
+          </div>
+          <div class="col-md-6">
+            <label for="height" class="form-label">Height (cm)</label>
+            <input type="number" class="form-control" id="height" name="height" required>
+            </div>
+          <div class="col-md-6">
+            <label for="bp" class="form-label">Blood Pressure (mmHg)</label>
+            <input type="text" class="form-control" id="bp" name="bp" placeholder="e.g., 120/80" required>
+          </div>
+          <div class="col-md-6">
+            <label for="heartRate" class="form-label">Heart Rate (bpm)</label>
+            <input type="number" class="form-control" id="heartRate" name="heartRate" required>
+          </div>
+          <div class="col-md-6">
+            <label for="bmi" class="form-label">BMI</label>
+            <input type="number" class="form-control" id="bmi" name="bmi" step="0.1" readonly>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-success mt-3">Add Data</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="container mt-5">
+  <h3 class="text-center mb-4">Health Statistics</h3>
+  <div class="row">
+    <!-- Weight -->
+    <div class="col-md-6 mb-4">
+      <div class="card shadow-sm p-3">
+        <h5 class="text-center">Weight (kg)</h5>
+        <canvas id="weightChart" height="250"></canvas>
+      </div>
+    </div>
+
+    <!-- Blood Pressure -->
+    <div class="col-md-6 mb-4">
+      <div class="card shadow-sm p-3">
+        <h5 class="text-center">Blood Pressure (mmHg)</h5>
+        <canvas id="bpChart" height="250"></canvas>
+      </div>
+    </div>
+
+    <!-- Heart Rate -->
+    <div class="col-md-6 mb-4">
+      <div class="card shadow-sm p-3">
+        <h5 class="text-center">Heart Rate (bpm)</h5>
+        <canvas id="heartRateChart" height="250"></canvas>
+      </div>
+    </div>
+
+    <!-- BMI -->
+    <div class="col-md-6 mb-4">
+      <div class="card shadow-sm p-3">
+        <h5 class="text-center">BMI</h5>
+        <canvas id="bmiChart" height="250"></canvas>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+           
+
+               
+                
+            
+<!-- CHAT BOT -->
+            </div>
+        
+             <div id="chatbot-icon">💬</div>
+    <div id="chatbot-container" class="hidden">
+      <div id="chatbot-header">
+        <span>ChatBot</span>
+        <button id="close-btn">&times;</button>
+      </div>
+      <div id="chatbot-body">
+        <div id="chatbot-messages"></div>
+      </div>
+      <div id="chatbot-input-container">
+        <input type="text" id="chatbot-input" placeholder="Type a message" />
+        <button id="send-btn">Send</button>
+      </div>
+    </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+const weightCtx = document.getElementById('weightChart').getContext('2d');
+const bpCtx = document.getElementById('bpChart').getContext('2d');
+const heartRateCtx = document.getElementById('heartRateChart').getContext('2d');
+const bmiCtx = document.getElementById('bmiChart').getContext('2d');
+
+let weightChart, bpChart, heartRateChart, bmiChart;
+
+function loadUserInfo() {
+  $.get('/tracking/api/getUserData', function (user) {
+    console.log("User info:", user);
+    $('#firstName').text(user.firstName + ' ' + user.lastName);
+    $('#age').text(user.age);
+    $('#gender').text(user.gender);
+
+    const imgPath = '/images/' + (user.image || 'default.png');
+    console.log("Setting image src to:", imgPath);
+    $('#userImage').attr('src', imgPath);
+  }).fail(() => {
+    $('#firstName').text('Unavailable');
+    $('#age, #gender, #location').text('N/A');
+  });
+}
+
+
+// ✅ Submit Health Data Form
+$('#healthDataForm').on('submit', function (e) {
+  e.preventDefault();
+
+  const formData = {
+    time: $('#time').val(),
+    weight: parseFloat($('#weight').val()),
+    height: parseFloat($('#height').val()),
+    bp: $('#bp').val(),
+    heartRate: parseInt($('#heartRate').val()),
+    bmi: parseFloat($('#bmi').val())
+  };
+
+  $.post('/tracking/api/addHealthData', formData, function (response) {
+    alert(response.message);
+    $('#healthDataForm')[0].reset();
+    fetchHealthData();
+  }).fail(err => {
+    alert("Error submitting data.");
+    console.error(err.responseJSON || err);
+  });
+});
+
+// ✅ Fetch Health Data for Charts
+function fetchHealthData() {
+  $.get('/tracking/api/getHealthData', function (healthData) {
+    if (!healthData.length) return;
+
+    const labels = healthData.map(d => new Date(d.time).toLocaleString());
+
+    if (weightChart) weightChart.destroy();
+    if (bpChart) bpChart.destroy();
+    if (heartRateChart) heartRateChart.destroy();
+    if (bmiChart) bmiChart.destroy();
+
+    weightChart = new Chart(weightCtx, {
+      type: 'line',
+      data: {
+        labels,
+        datasets: [{
+          label: 'Weight (kg)',
+          data: healthData.map(d => d.weight),
+          borderColor: '#041D35',
+          tension: 0.3,
+          fill: false
+        }]
+      }
+    });
+
+    bpChart = new Chart(bpCtx, {
+      type: 'line',
+      data: {
+        labels,
+        datasets: [{
+          label: 'Systolic (Top) BP',
+          data: healthData.map(d => {
+            const parts = (d.bp || "").split('/');
+            const systolic = parseInt(parts[0]);
+            return isNaN(systolic) ? null : systolic;
+          }),
+          borderColor: '#0B5345',
+          tension: 0.3,
+          fill: false
+        }]
+      }
+    });
+
+    heartRateChart = new Chart(heartRateCtx, {
+      type: 'line',
+      data: {
+        labels,
+        datasets: [{
+          label: 'Heart Rate (bpm)',
+          data: healthData.map(d => d.heartRate || null),
+          borderColor: '#A93226',
+          tension: 0.3,
+          fill: false
+        }]
+      }
+    });
+
+    bmiChart = new Chart(bmiCtx, {
+      type: 'line',
+      data: {
+        labels,
+        datasets: [{
+          label: 'BMI',
+          data: healthData.map(d => d.bmi || null),
+          borderColor: '#2874A6',
+          tension: 0.3,
+          fill: false
+        }]
+      }
+    });
+
+  }).fail(err => {
+    console.error("Health data fetch failed:", err);
+  });
+}
+
+// ✅ Calculate BMI on input
+const weightInput = document.getElementById('weight');
+const heightInput = document.getElementById('height');
+const bmiInput = document.getElementById('bmi');
+
+function calculateBMI() {
+  const weight = parseFloat(weightInput.value);
+  const heightCm = parseFloat(heightInput.value);
+  if (!isNaN(weight) && !isNaN(heightCm) && heightCm > 0) {
+    const heightM = heightCm / 100;
+    const bmi = weight / (heightM * heightM);
+    bmiInput.value = bmi.toFixed(1);
+  } else {
+    bmiInput.value = '';
+  }
+}
+
+weightInput.addEventListener('input', calculateBMI);
+heightInput.addEventListener('input', calculateBMI);
+
+// ✅ Initial Load
+loadUserInfo();
+fetchHealthData();
+</script>
+
+<script>
+
+        // CHATBOT
+
+        document.addEventListener("DOMContentLoaded", function () {
+  const chatbotContainer = document.getElementById("chatbot-container");
+  const clostBtn = document.getElementById("close-btn");
+  const sendBtn = document.getElementById("send-btn");
+  const chatBotInput = document.getElementById("chatbot-input");
+  const chatbotMessages = document.getElementById("chatbot-messages");
+  const chatbotIcon = document.getElementById("chatbot-icon");
+
+  chatbotIcon.addEventListener("click", () => {
+    chatbotContainer.classList.remove("hidden");
+    chatbotIcon.style.display = "none";
+  });
+  clostBtn.addEventListener("click", () => {
+    chatbotContainer.classList.add("hidden");
+    chatbotIcon.style.display = "flex";
+  });
+
+  sendBtn.addEventListener("click", sendMessage);
+
+  chatBotInput.addEventListener("keypress", (e) => {
+    if (e.key === "Enter") sendMessage();
+  });
+});
+
+function sendMessage() {
+  const userMessage = document.getElementById("chatbot-input").value.trim();
+  if (userMessage) {
+    appendMessage("user", userMessage);
+    document.getElementById("chatbot-input").value = " ";
+    getBotResponse(userMessage);
+  }
+}
+
+function appendMessage(sender, message) {
+  const messageContainer = document.getElementById("chatbot-messages");
+  const messageElement = document.createElement("div");
+  messageElement.classList.add("message", sender);
+  messageElement.textContent = message;
+  messageContainer.appendChild(messageElement);
+  messageContainer.scrollTop = messageContainer.scrollHeight;
+}
+
+async function getBotResponse(userMessage) {
+  const API_KEY = "AIzaSyA6P7QMnGpPNeUHBSwoWBQ5i2HZM50V7kI";
+  const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${API_KEY}`;
+
+  try {
+    const response = await fetch(API_URL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        contents: [
+          {
+            parts: [{ text: userMessage }],
+          },
+        ],
+      }),
+    });
+
+    const data = await response.json();
+
+    if (!data.candidates || !data.candidates.length) {
+      throw new Error("No response from Gemini API");
+    }
+
+    const botMessage = data.candidates[0].content.parts[0].text;
+    appendMessage("bot", botMessage);
+  } catch (error) {
+    console.error("Error:", error);
+    appendMessage(
+      "bot",
+      "Sorry, I'm having trouble responding. Please try again."
+    );
+  }
+}
+    </script>
+</body>
+</html>
