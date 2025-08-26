@@ -1,4 +1,15 @@
 {
+  "name": "vibe-guard",
+  "version": "1.0.0",
+  "description": "Vibe Guard project",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "keywords": [],
+  "author": "Haleema Usman",
+  "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.1.1",
     "cookie-parser": "^1.4.7",
