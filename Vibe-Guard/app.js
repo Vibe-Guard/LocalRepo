@@ -92,9 +92,9 @@ app.get('/find-doctors', (req, res) => {
 
 
 //Database Connection
-// Database Connection
+const connectdb = require("./db");
 
-const Port = 5000;
+const Port = 7000;
 
 const start =async() =>{
     await connectdb();
