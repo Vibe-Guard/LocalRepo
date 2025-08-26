@@ -83,15 +83,16 @@ app.get("/find-doctors", (req, res) => {
   res.redirect("/doctor-list");
 });
 
-//Database Connection
+// Database Connection
 const connectdb = require("./db");
 
-const Port = process.env.PORT || 7000;
+// Use Render’s port or fallback to 5000 for local
+const Port = process.env.PORT || 5000;
 
 const start = async () => {
   await connectdb();
   app.listen(Port, () => {
-    console.log(`Server started at http://localhost:${Port}`);
+    console.log(`Server started at port ${Port}`);
   });
 };
 
