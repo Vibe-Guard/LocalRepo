@@ -180,6 +180,65 @@
       animation-duration: 1.5s; 
 }
 
+@media (max-width: 500px) {
+  .custom-img-container {
+    width: 100%;
+  }
+
+  .doc-images {
+    width: 100%;
+    height: auto;
+    object-fit: contain; /* keeps full image without cutting */
+  }
+}
+
+@media (max-width: 543px) {
+  .why_container {
+    justify-content: center;   /* center children */
+  }
+
+  .why_container .box {
+    width: 100%;              /* take full width on small screens */
+    max-width: 400px;         /* optional: prevent being too wide */
+    margin: 10px auto;        /* auto margins will center the box */
+    text-align: center;       /* center content inside */
+  }
+}
+
+@media (max-width: 575px) {
+  .team_container .row {
+    justify-content: center; /* center all cols */
+  }
+
+  .team_container .col-lg-3,
+  .team_container .col-sm-6 {
+    display: flex;
+    justify-content: center; /* center the box inside */
+  }
+
+  .team_container .box {
+    max-width: 300px; /* optional: prevents full screen stretch */
+    text-align: center; /* center text inside */
+  }
+}
+
+@media (min-width: 576px) and (max-width: 991px) {
+  .team_container .row {
+    justify-content: center;  /* centers the two cols */
+  }
+
+  .team_container .col-sm-6 {
+    display: flex;
+    justify-content: center;  /* centers the box inside */
+  }
+
+  .team_container .box {
+    max-width: 300px;   /* keeps boxes from stretching too wide */
+    text-align: center; /* centers doctor names + text */
+  }
+}
+
+
 </style> 
 </head>
 <body>

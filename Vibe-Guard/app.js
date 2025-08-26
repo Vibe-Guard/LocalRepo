@@ -95,7 +95,7 @@ app.get('/find-doctors', (req, res) => {
 // Database Connection
 const connectdb = require("./db");
 
-const Port = 6000;
+const Port = 5000;
 
 const start =async() =>{
     await connectdb();

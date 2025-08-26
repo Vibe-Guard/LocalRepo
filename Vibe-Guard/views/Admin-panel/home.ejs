@@ -65,6 +65,10 @@
         /* Adding custom duration for the animations */
         .wow {
             animation-duration: 1.5s; 
+            visibility: hidden /* make sure they are always visible */
+        }
+        .wow.animate__animated {
+            visibility: visible !important; /* only becomes visible once animation runs */
         }
     </style>
 </head>
@@ -91,7 +95,7 @@
                     </div>
                 </a>
             </div>
-            <div class="col-lg-4 col-md-6 wow animate__zoomIn" data-wow-delay="0s">
+            <div class="col-lg-4 col-md-6 animate__animated animate__zoomIn" data-wow-delay="0s">
                 <a href="/symptoms/read" class="text-decoration-none">
                     <div class="card shadow">
                         <div class="card-body text-center">
@@ -102,7 +106,7 @@
                     </div>
                 </a>
             </div>
-            <div class="col-lg-4 col-md-6 wow animate__slideInDown" data-wow-delay="0s">
+            <div class="col-lg-4 col-md-6 animate__animated animate__slideInDown" data-wow-delay="0s">
                 <a href="/symptomDetails/read" class="text-decoration-none">
                     <div class="card shadow">
                         <div class="card-body text-center">
@@ -113,7 +117,7 @@
                     </div>
                 </a>
             </div>
-            <div class="col-lg-4 col-md-6 wow animate__zoomIn" data-wow-delay="0s">
+            <div class="col-lg-4 col-md-6 animate__animated animate__zoomIn" data-wow-delay="0s">
                 <a href="/doctor/read" class="text-decoration-none">
                     <div class="card shadow">
                         <div class="card-body text-center">
@@ -124,7 +128,7 @@
                     </div>
                 </a>
             </div>
-            <div class="col-lg-4 col-md-6 wow animate__slideInUp" data-wow-delay="0s">
+            <div class="col-lg-4 col-md-6 animate__animated animate__slideInUp" data-wow-delay="0s">
                 <a href="/medicine/read" class="text-decoration-none">
                     <div class="card shadow">
                         <div class="card-body text-center">
@@ -135,7 +139,7 @@
                     </div>
                 </a>
             </div>
-            <div class="col-lg-4 col-md-6 wow animate__slideInRight" data-wow-delay="0s">
+            <div class="col-lg-4 col-md-6 animate__animated animate__slideInRight" data-wow-delay="0s">
                 <a href="/admin/users" class="text-decoration-none">
                     <div class="card shadow">
                         <div class="card-body text-center">
@@ -147,7 +151,7 @@
                 </a>
             </div>
             
-            <div class="col-lg-4 col-md-6 wow animate__slideInRight" data-wow-delay="0s">
+            <div class="col-lg-4 col-md-6 animate__animated animate__slideInRight" data-wow-delay="0s">
                 <a href="/feedback/all-feedbacks" class="text-decoration-none">
                     <div class="card shadow">
                         <div class="card-body text-center">
@@ -164,7 +168,17 @@
 
     <!-- Initialize WOW.js -->
     <script>
-        new WOW().init();  
+        new WOW({
+            boxClass:     'wow',
+            animateClass: 'animate__animated',
+            offset:       0,
+            mobile:       true,
+            live:         true,
+            callback: function(box) {
+            // force visibility when WOW triggers animation
+            box.style.visibility = 'visible';
+            }
+        }).init();
     </script>
 
     <!-- Bootstrap JS -->

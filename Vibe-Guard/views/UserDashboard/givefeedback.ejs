@@ -128,7 +128,7 @@
             border-radius: 10px;
         }
 
-        @media (max-width: 768px) {
+        /* @media (max-width: 768px) {
             #sidebar {
                 position: relative;
                 width: 100%;
@@ -139,7 +139,100 @@
                 margin-left: 0;
                 padding: 30px 15px;
             }
+        } */
+         @media (max-width: 768px) {
+            #sidebar {
+                position: fixed;
+                width: 240px; /* smaller but still visible */
+                height: 100vh;
+                left: 0;
+                top: 0;
+                z-index: 999;
+            }
+
+            .feedback-wrapper {
+                margin-left: 260px; /* match sidebar width */
+                padding: 20px;
+            }
         }
+
+        /* @media (max-width: 560px) {
+            #sidebar {
+                width: 180px;  
+                min-width: 180px;
+                max-width: 180px;
+            }
+
+            .feedback-wrapper {
+                margin-left: 200px; 
+                padding: 20px;
+            }
+        } */
+
+        /* Between 426px and 560px */
+@media (max-width: 560px) {
+    #sidebar {
+        width: 180px;
+        min-width: 180px;
+        max-width: 180px;
+    }
+
+    .feedback-wrapper {
+        margin-left: 200px; /* matches sidebar */
+        padding: 20px;
+    }
+}
+
+@media (max-width: 425px) {
+    #sidebar {
+        width: 120px;
+        min-width: 120px;
+        max-width: 120px;
+        font-size: 0.8rem;
+    }
+
+    #sidebar .sidebar-header {
+        font-size: 1rem;      /* smaller text */
+        line-height: 1.2;     /* tighter line height */
+        text-align: left;     /* align left */
+        padding-left: 5px;    /* slight left shift */
+    }
+
+    #sidebar ul li a {
+        padding: 6px 8px;
+        font-size: 0.75rem;
+    }
+
+    .feedback-wrapper {
+        margin-left: 130px;
+        padding: 10px;
+    }
+
+    .feedback-card {
+        padding: 18px;
+    }
+
+    .feedback-card h2 {
+        font-size: 0.95rem;
+        flex-wrap: wrap;
+    }
+
+    .feedback-card h2 i {
+        font-size: 0.95rem;
+    }
+
+    textarea.form-control {
+        font-size: 0.8rem;
+    }
+
+    .btn-primary {
+        width: 100%;
+        font-size: 0.85rem;
+    }
+}
+
+
+
     </style>
 </head>
 <body>
