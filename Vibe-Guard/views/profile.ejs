@@ -87,9 +87,38 @@
     .hidden {
       display: none;
     }
+
+    /* Back button styling */
+.back-btn {
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  z-index: 2000;
+  display: none; /* hidden by default */
+}
+
+/* Small screens: hide sidebar, show back button */
+@media (max-width: 767.98px) {
+  #sidebar {
+    display: none !important;
+  }
+
+  .profile-container {
+    margin-left: 0 !important;
+    padding-top: 70px; /* leave space for the button */
+  }
+
+  .back-btn {
+    display: inline-block !important;
+  }
+}
+
   </style>
 </head>
 <body>
+  <a href="/tracking/dashboard" class="btn btn-dark back-btn d-md-none">
+    <i class="fas fa-arrow-left"></i> Back to Dashboard
+  </a>
   <div class="container-fluid">
     <div class="row">
 

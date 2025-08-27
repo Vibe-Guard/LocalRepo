@@ -229,6 +229,47 @@
 
     .card { border-radius:8px; }
     h2 { color:#041D35; font-weight:700; }
+
+@media (max-width: 768px) {
+  #sidebar {
+    transform: translateX(-120%); /* hidden by default */
+    position: fixed;
+    top: 0;
+    height: 100vh;
+  }
+
+  #sidebar.active {
+    transform: translateX(0); /* visible when toggled */
+  }
+
+  #sidebar .sidebar-inner {
+    flex: none;
+    display: block;
+    padding-top: 20px;
+    text-align: center;
+  }
+
+  .sidebar-header {
+    margin-left: 0;
+    padding: 15px 10px;
+    text-align: center;
+  }
+
+  .outer-img-div {
+    margin: 10px auto;
+  }
+
+  .sidebar-footer {
+    margin-top: 20px;
+  }
+
+  /* Show mobile toggle button */
+  #mobile-menu-btn {
+    display: block;
+  }
+}
+
+
   </style>
 </head>
 <body>
@@ -262,7 +303,6 @@
           </a>
           <ul class="collapse list-unstyled" id="settingsSubmenu">
             <li><a href="/symptomschecker/read"><i class="fas fa-stethoscope"></i> Symptom Checker</a></li>
-            <li><a href="/post/posts"><i class="fas fa-book-open"></i> User Stories</a></li>
             <li><a href="/doctor-list"><i class="fas fa-sign-out-alt"></i>Find Doctors</a></li>
             <li><a href="/feedback/feedback"><i class="fas fa-comments"></i> Feedback</a></li>
             <li><a href="/login/profile"><i class="fas fa-user"></i> Profile</a></li>
