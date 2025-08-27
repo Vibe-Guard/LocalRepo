@@ -8,7 +8,7 @@ router.get('/add',isAuthenticated, async (req, res) => {
     try {
       // Fetch all symptoms from the database
       const symptoms = await Symptom.find();
-      res.render('Admin-Panel/Medicines/addMedicine', { symptoms }); 
+      res.render('Admin-panel/Medicines/addMedicine', { symptoms }); 
     } catch (error) {
       console.error('Error fetching symptoms:', error);
       res.status(500).send('Error fetching symptoms');
@@ -63,7 +63,7 @@ router.get('/add',isAuthenticated, async (req, res) => {
 
     const totalPages = Math.ceil(total / limit);
 
-    res.render('Admin-Panel/Medicines/Medicine-read', {
+    res.render('Admin-panel/Medicines/Medicine-read', {
       medicines,
       currentPage: page,
       totalPages,
@@ -90,7 +90,7 @@ router.get('/edit/:id',isAuthenticated, async (req, res) => {
       return res.status(404).send("Medicine not found.");
     }
 
-    res.render('Admin-Panel/Medicines/editMedicine', { medicine, symptoms });
+    res.render('Admin-panel/Medicines/editMedicine', { medicine, symptoms });
   } catch (error) {
     console.error('Error fetching medicine for editing:', error);
     res.status(500).send('Error fetching medicine.');

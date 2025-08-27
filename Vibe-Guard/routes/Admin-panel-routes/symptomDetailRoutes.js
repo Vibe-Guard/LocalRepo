@@ -8,7 +8,7 @@ const isAuthenticated = require('../../middlewares/admin-middleware');
 router.get('/add',isAuthenticated, async (req, res) => {
   try {
     const symptoms = await Symptom.find(); 
-    res.render('Admin-Panel/SymptomDetails/addSymptomDetail', { symptoms }); 
+    res.render('Admin-panel/SymptomDetails/addSymptomDetail', { symptoms }); 
   } catch (error) {
     console.error(error);
     res.status(500).send("Error fetching symptoms.");
@@ -85,7 +85,7 @@ router.get('/read', isAuthenticated, async (req, res) => {
       .limit(limit);
 
     const totalPages = Math.ceil(total / limit);
-    res.render('Admin-Panel/SymptomDetails/SymptomDetail-read', {
+    res.render('Admin-panel/SymptomDetails/SymptomDetail-read', {
       layout: true,
       symptomDetails,
       currentPage: page,
@@ -110,7 +110,7 @@ router.get('/edit/:id', isAuthenticated, async (req, res) => {
       return res.status(404).send('Symptom detail not found.');
     }
 
-    res.render('Admin-Panel/SymptomDetails/editSymptomDetail', {
+    res.render('Admin-panel/SymptomDetails/editSymptomDetail', {
       symptomDetail,
       symptoms
     });

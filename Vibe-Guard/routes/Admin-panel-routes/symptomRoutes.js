@@ -9,7 +9,7 @@ const isAuthenticated = require('../../middlewares/admin-middleware');
 router.get('/add', isAuthenticated,async (req, res) => {
   try {
     const bodyParts = await BodyPart.find(); 
-    res.render('Admin-Panel/Symptom/addSymptom', { bodyParts });
+    res.render('Admin-panel/Symptom/addSymptom', { bodyParts });
   } catch (error) {
     console.error(error);
     res.status(500).send("Error fetching body parts.");
@@ -54,7 +54,7 @@ router.get('/read', isAuthenticated, async (req, res) => {
 
     const totalPages = Math.ceil(total / limit);
 
-    res.render('Admin-Panel/Symptom/Symptom-read', {
+    res.render('Admin-panel/Symptom/Symptom-read', {
       layout: true,
       symptoms,
       currentPage: page,
@@ -79,7 +79,7 @@ router.get('/edit/:id', isAuthenticated,async (req, res) => {
     }
 
     // Render the edit form with current symptom data and body parts
-    res.render('Admin-Panel/Symptom/editSymptom', { symptom, bodyParts });
+    res.render('Admin-panel/Symptom/editSymptom', { symptom, bodyParts });
   } catch (error) {
     console.error(error);
     res.status(500).send("Error fetching symptom data.");
