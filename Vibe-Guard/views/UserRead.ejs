@@ -241,6 +241,32 @@
   color: #003366;
   margin-bottom: 20px;
 }
+/* 768px aur upar ke liye: har row mein 4 body parts */
+@media (min-width: 768px) {
+  .row.new-flex-resp {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .Symptoms-button {
+    width: 100%;
+    aspect-ratio: 1 / 1; /* square boxes */
+    max-width: 260px;    /* thoda control rakho */
+  }
+  .Symptoms-button img {
+    width: 60%;
+    height: 60%;
+  }
+}
+/* 1440px aur us se upar ke liye: thodi length kam */
+@media (min-width: 1440px) {
+  .Symptoms-button {
+    width: 340px;   /* pehle 425px tha, ab thoda chhota */
+    height: 340px;
+  }
+  .Symptoms-button img {
+    width: 250px;
+    height: 250px;
+  }
+}
 
 
     .info-box:hover { transform: scale(1.05); }

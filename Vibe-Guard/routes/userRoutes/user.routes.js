@@ -16,7 +16,8 @@ const { sendPasswordResetConfirmation ,sendPasswordResetOTP} = require("../../ut
 
 // Render Login/Register Page
 router.get("/register", (req, res) => {
-  res.render("Register/login-register", { layout: false, error: null, success: null });
+  const message = req.query.message || null;
+  res.render("Register/login-register", { layout: false, error: message, success: null });
 });
 
 // Register / Create user route
