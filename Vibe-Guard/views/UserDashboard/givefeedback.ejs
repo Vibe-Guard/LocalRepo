@@ -231,6 +231,32 @@
     }
 }
 
+/* Default: hide back button */
+.back-btn {
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    z-index: 1000;
+    display: none;
+}
+
+/* Small screens: hide sidebar, show back button */
+@media (max-width: 768px) {
+    #sidebar {
+        display: none;
+    }
+
+    .feedback-wrapper {
+        margin-left: 0;
+        padding: 20px;
+    }
+
+    .back-btn {
+        display: inline-block;
+    }
+}
+
+
 
 
     </style>
@@ -245,6 +271,10 @@
             </li>
         </ul>
     </nav>
+
+    <a href="/tracking/dashboard" class="btn btn-sm btn-dark d-block d-md-none back-btn">
+        <i class="bi bi-arrow-left"></i> Back
+    </a>
 
     <div class="feedback-wrapper">
         <div class="feedback-card">
