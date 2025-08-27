@@ -1,30 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Input Data</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <style>
-        /* Full-page background image */
-        body {
-            margin: 0;
-            padding: 0;
-            background: url('/images/bgimg.jpg') no-repeat center center fixed;
-            background-size: cover;
-            font-family: 'Arial', sans-serif;
-        }
-
-        /* Navbar styles */
-         .navbar {
-      background-color: #041D35;
-      padding: 10px 0px;
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Input Data</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: url('/images/bgimg.jpg') no-repeat center center fixed;
+      background-size: cover;
+      font-family: 'Arial', sans-serif;
     }
 
-    .navbar .container-fluid {
-      padding-left: 0;
-      padding-right: 0;
+    .navbar {
+      background-color: #041D35;
+      padding: 10px 20px;
     }
 
     .navbar-brand {
@@ -64,248 +57,225 @@
       font-weight: bold;
     }
 
-.logo {
-    width: 45%; /* Adjust logo size relative to the square */
-    height: auto;
-    padding-left: 11%;
-  }
-        /* End */
-/* .container {
-  width: 600px;        
-  margin: 40px auto;  
-  padding: 20px 30px;
-  background-color: #041D35;
-  border-radius: 10px;
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
-  text-align: left;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: #ffffff;
-} */
+    .container {
+      max-width: 600px;
+      width: 90%;
+      margin: 40px auto;
+      padding: 20px 30px;
+      background-color: #041D35;
+      border-radius: 10px;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+      text-align: left;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #ffffff;
+    }
 
-.container {
-  max-width: 600px;     /* Container won't exceed 600px */
-  width: 90%;           /* Take up most of the screen on smaller devices */
-  margin: 40px auto;
-  padding: 20px 30px;
-  background-color: #041D35;
-  border-radius: 10px;
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
-  text-align: left;
-  color: #ffffff;
-}
+    .container h3 {
+      text-align: center;
+      margin-bottom: 25px;
+      color: #ffffff;
+      font-weight: 900;
+      font-size: 28px;
+    }
 
+    .form-label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 700;
+      color: #cbd6e7;
+      font-size: 15px;
+    }
 
-/* Form header */
-.container h3 {
-  text-align: center;
-  margin-bottom: 25px;
-  color: #ffffff;             /* Lighter blue for header */
-  font-weight: 900;           /* Extra bold */
-  font-size: 32px;            /* Larger font size */
-}
+    .form-control {
+      width: 100%;
+      padding: 10px 14px;
+      font-size: 15px;
+      border: 1.8px solid #5a7ba6;
+      border-radius: 6px;
+      background-color: #0e2a57;
+      color: #e1eaff;
+      transition: border-color 0.3s ease;
+      box-sizing: border-box;
+      outline: none;
+    }
 
-/* Labels */
-.form-label {
-  display: block;
-  margin-bottom: 8px;
-  font-weight: 700;           /* Bold */
-  color: #cbd6e7;             /* Light bluish-gray */
-  font-size: 16px;            /* Slightly larger */
-}
+    .form-control::placeholder {
+      color: #a3b1cc;
+    }
 
-/* Inputs & selects */
-.form-control {
-  width: 100%;
-  padding: 10px 14px;
-  font-size: 16px;
-  border: 1.8px solid #5a7ba6; /* lighter border */
-  border-radius: 6px;
-  background-color: #0e2a57;    /* Dark input background */
-  color: #e1eaff;              /* Light text in inputs */
-  transition: border-color 0.3s ease;
-  box-sizing: border-box;
-  outline: none;
-}
+    .form-control:focus {
+      border-color: #3399ff;
+      box-shadow: 0 0 5px #3399ff88;
+      background-color: #143f82;
+      color: #fff;
+    }
 
-.form-control::placeholder {
-  color: #a3b1cc;              /* Placeholder color */
-}
+    input[type="file"].form-control {
+      padding: 6px 12px;
+    }
 
-.form-control:focus {
-  border-color: #3399ff;
-  box-shadow: 0 0 5px #3399ff88;
-  background-color: #143f82;
-  color: #fff;
-}
+    .btn-primary {
+      width: 100%;
+      background-color: #ffffff;
+      border: none;
+      padding: 14px 0;
+      font-size: 16px;
+      font-weight: 800;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      color: #0e2a57;
+    }
 
-/* File input tweak */
-input[type="file"].form-control {
-  padding: 6px 12px;
-}
+    .btn-primary:hover {
+      background-color: #143f82;
+      color: #fff;
+    }
 
-/* Margin bottom spacing for inputs */
-.mb-2 {
-  margin-bottom: 16px;
-}
+    @media (max-width: 768px) {
+      .container {
+        padding: 15px 20px;
+      }
+      .container h3 {
+        font-size: 24px;
+      }
+    }
 
-/* Button styling */
-.btn-primary {
-  width: 100%;
-  background-color: #ffffff;
-  border: none;
-  padding: 14px 0;
-  font-size: 18px;
-  font-weight: 800;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  color: #0e2a57;
-}
-
-.btn-primary:hover {
-  background-color: #143f82;
-  color: #fff;
-}
-
-
-
-@media (max-width: 400px) {
-  .container {
-    width: 95%;
-    padding: 15px 20px;
-  }
-}
-
-
-
-
-
-
-    </style>
+    @media (max-width: 480px) {
+      .container {
+        width: 95%;
+        padding: 12px 15px;
+      }
+      .container h3 {
+        font-size: 20px;
+      }
+      .btn-primary {
+        font-size: 14px;
+        padding: 12px 0;
+      }
+    }
+  </style>
 </head>
 <body>
 
-    <nav class="navbar navbar-expand-lg">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">
-      <span class="vibeGuard">V</span><span>ibeGuard</span>
-    </a>
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-bs-toggle="collapse"
-      data-bs-target="#navbarNav"
-      aria-controls="navbarNav"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
-      <span class="navbar-toggler-icon" style="color: #fff"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ms-auto">
-
-        <li class="nav-item">
-          <a class="nav-link active" href="/">Home</a>
-        </li>
-
+  <nav class="navbar navbar-expand-lg">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">
+        <span class="vibeGuard">V</span><span>ibeGuard</span>
+      </a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon" style="color: #fff"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link active" href="/">Home</a>
+          </li>
           <li class="nav-item">
             <a class="nav-link" href="/tracking/dashboard">User Dashboard</a>
           </li>
-
           <li class="nav-item">
             <a class="nav-link" href="/symptomschecker/read">SymptomChecker</a>
           </li>
-
           <li class="nav-item">
             <a class="nav-link" href="/about-Us">About Us</a>
           </li>
-
           <li class="nav-item">
             <a class="nav-link" href="/login/logout">Logout</a>
           </li>
-
-      </ul>
+        </ul>
+      </div>
     </div>
+  </nav>
+
+  <div class="container">
+    <h3>User Info</h3>
+    <form id="userInfoForm" enctype="multipart/form-data">
+      <div class="mb-2">
+        <label for="firstName" class="form-label">First Name</label>
+        <input type="text" class="form-control" id="firstName" name="firstName" required>
+      </div>
+      <div class="mb-2">
+        <label for="lastName" class="form-label">Last Name</label>
+        <input type="text" class="form-control" id="lastName" name="lastName" required>
+      </div>
+      <div class="mb-2">
+        <label for="age" class="form-label">Age</label>
+        <input type="number" class="form-control" id="age" name="age" required min="16">
+      </div>
+      <div class="mb-2">
+        <label for="gender" class="form-label">Gender</label>
+        <select class="form-control" id="gender" name="gender" required>
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+          <option value="Other">Other</option>
+        </select>
+      </div>
+      <div class="mb-2">
+        <label for="image" class="form-label">Profile Image</label>
+        <input type="file" class="form-control" id="image" name="image">
+      </div>
+      <button type="submit" class="btn btn-primary">Save Info</button>
+    </form>
   </div>
-</nav>
 
-    <div class="container">
-        <h3>User Info</h3>
-        <form id="userInfoForm" enctype="multipart/form-data">
-            <div class="mb-2">
-                <label for="firstName" class="form-label">First Name</label>
-                <input type="text" class="form-control" id="firstName" name="firstName" required>
-            </div>
-            <div class="mb-2">
-                <label for="lastName" class="form-label">Last Name</label>
-                <input type="text" class="form-control" id="lastName" name="lastName" required>
-            </div>
-            <div class="mb-2">
-                <label for="age" class="form-label">Age</label>
-                <input type="number" class="form-control" id="age" name="age" required min="16">
-            </div>
-            <div class="mb-2">
-                <label for="gender" class="form-label">Gender</label>
-                <select class="form-control" id="gender" name="gender" required>
-                    <option value="Male">Male</option>
-                    <option value="Female">Female</option>
-                    <option value="Other">Other</option>
-                </select>
-            </div>
-            <div class="mb-2">
-                <label for="image" class="form-label">Profile Image</label>
-                <input type="file" class="form-control" id="image" name="image">
-            </div>
-            <button type="submit" class="btn text: #0e2a57; btn-primary">Save Info</button>
-        </form>
-    </div>
-    <script>
-        $(document).ready(function () {
-            const userId = "<%= userId %>";
-            console.log("Logged-in user ID:", userId);
+  <!-- Bootstrap JS Bundle (with Popper) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-            // Fetch user data to populate the form
-            $.get(`/tracking/api/getUserData/${userId}`, function (userInfo) {
-                if (userInfo) {
-                    $('#firstName').val(userInfo.firstName || '');
-                    $('#lastName').val(userInfo.lastName || '');
-                    $('#age').val(userInfo.age || '');
-                    $('#gender').val(userInfo.gender || 'Male');
-                  }
-            });
+  <script>
+    $(document).ready(function () {
+      const userId = "<%= userId %>";
+      console.log("Logged-in user ID:", userId);
 
-            // Handle form submission
-            $('#userInfoForm').submit(function (e) {
-    e.preventDefault();
+      // Fetch user data to populate the form
+      $.get(`/tracking/api/getUserData/${userId}`, function (userInfo) {
+        if (userInfo) {
+          $('#firstName').val(userInfo.firstName || '');
+          $('#lastName').val(userInfo.lastName || '');
+          $('#age').val(userInfo.age || '');
+          $('#gender').val(userInfo.gender || 'Male');
+        }
+      });
 
-    const age = parseInt($('#age').val());
-    if (isNaN(age) || age < 16) {
-        alert("Age must be greater than 15.");
-        return;
-    }
+      // Handle form submission
+      $('#userInfoForm').submit(function (e) {
+        e.preventDefault();
 
-    const formData = new FormData(this);
+        const age = parseInt($('#age').val());
+        if (isNaN(age) || age < 16) {
+          alert("Age must be greater than 15.");
+          return;
+        }
 
-    $.ajax({
-        url: '/tracking/api/saveUserData',
-        type: 'POST',
-        data: formData,
-        contentType: false,
-        processData: false,
-        success: function (response) {
+        const formData = new FormData(this);
+
+        $.ajax({
+          url: '/tracking/api/saveUserData',
+          type: 'POST',
+          data: formData,
+          contentType: false,
+          processData: false,
+          success: function (response) {
             alert(response.message || 'User info saved successfully.');
             setTimeout(function () {
-                window.location.href = '/tracking/dashboard';
+              window.location.href = '/tracking/dashboard';
             }, 500);
-        },
-        error: function (jqXHR) {
+          },
+          error: function (jqXHR) {
             console.error('Error saving user info:', jqXHR.responseJSON || jqXHR.responseText);
             alert(jqXHR.responseJSON?.message || 'Error saving user info.');
-        }
-    });
-});
-
+          }
         });
-    </script>
+      });
+    });
+  </script>
 </body>
 </html>
