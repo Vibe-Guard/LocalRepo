@@ -76,7 +76,7 @@ router.get('/read', isAuthenticated, async (req, res) => {
 
     const totalPages = Math.ceil(totalDoctors / limit);
 
-    res.render('Admin-panel/Doctors/doctorList', {
+    res.render('Admin-panel/Doctors/DoctorList', {
       doctors,
       currentPage: page,
       totalPages
