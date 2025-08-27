@@ -359,11 +359,20 @@
                       <h1 class="wow animate__backInLeft" data-wow-delay="0s" data-wow-duration="3s" style="color:aliceblue">
                         Because You Matter
                       </h1>
-                      <div class="p-2 rounded-3 px-4 py-2 wow animate__bounceIn" data-wow-delay="0s" data-wow-duration="2s">
-                        <a href="/login/register" class="custom-button">
-                          Get Register
+                      <!-- <div class="p-2 rounded-3 px-4 py-2 wow animate__bounceIn" data-wow-delay="0s" data-wow-duration="2s">
+                        <a href="/symptomschecker/read" class="custom-button">
+                          Identify Your Symptoms
                         </a>
-                      </div>
+                      </div> -->
+                      <div class="p-2 rounded-3 px-4 py-2 wow animate__bounceIn" data-wow-delay="0s" data-wow-duration="2s">
+                      <% if (user) { %>
+                        <!-- If user is logged in -->
+                        <a href="/tracking/dashboard" class="custom-button">User Dashboard</a>
+                      <% } else { %>
+                        <!-- If user is not logged in -->
+                        <a href="/login/register" class="custom-button">Get Started</a>
+                      <% } %>
+                    </div>
                       
                       
                     </div>
@@ -404,7 +413,7 @@
             </div>
             <div class="col-lg-6 wow fadeInRight" data-wow-delay="400ms">
               <div class="custom-img-container">
-                <img src="images\bg-doctor.png" alt="" class="wow animate__slideInRight" data-wow-delay="0s" data-wow-duration="3s">
+                <img src="images\bg-doctor.png" alt="" class="wow animate__slideInRight doc-images" data-wow-delay="0s" data-wow-duration="3s">
               </div>
             </div>
           </div>

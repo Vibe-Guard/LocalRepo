@@ -76,7 +76,7 @@ router.get('/read', isAuthenticated, async (req, res) => {
 
     const totalPages = Math.ceil(totalDoctors / limit);
 
-    res.render('Admin-Panel/Doctors/doctorList', {
+    res.render('Admin-panel/Doctors/DoctorList', {
       doctors,
       currentPage: page,
       totalPages
@@ -95,7 +95,7 @@ router.get('/edit/:id', isAuthenticated, async (req, res) => {
       return res.status(404).send('Doctor not found');
     }
 
-    res.render('Admin-Panel/Doctors/editDoctor', {
+    res.render('Admin-panel/Doctors/editDoctor', {
       doctor
     });
   } catch (error) {

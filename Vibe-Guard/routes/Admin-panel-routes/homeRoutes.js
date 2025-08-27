@@ -56,7 +56,7 @@ router.get('/users', isAuthenticated, async (req, res) => {
 
     const totalPages = Math.ceil(total / limit);
 
-    res.render('Admin-Panel/Users', {
+    res.render('Admin-panel/Users', {
       users,
       message: message || null,
       messageType: type || null,

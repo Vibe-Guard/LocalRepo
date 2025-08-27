@@ -19,7 +19,12 @@
         /* Navbar styles */
          .navbar {
       background-color: #041D35;
-      padding: 10px 20px;
+      padding: 10px 0px;
+    }
+
+    .navbar .container-fluid {
+      padding-left: 0;
+      padding-right: 0;
     }
 
     .navbar-brand {
@@ -65,9 +70,9 @@
     padding-left: 11%;
   }
         /* End */
-.container {
-  width: 600px;         /* Fixed width */
-  margin: 40px auto;    /* Center horizontally with top margin */
+/* .container {
+  width: 600px;        
+  margin: 40px auto;  
   padding: 20px 30px;
   background-color: #041D35;
   border-radius: 10px;
@@ -75,7 +80,20 @@
   text-align: left;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color: #ffffff;
+} */
+
+.container {
+  max-width: 600px;     /* Container won't exceed 600px */
+  width: 90%;           /* Take up most of the screen on smaller devices */
+  margin: 40px auto;
+  padding: 20px 30px;
+  background-color: #041D35;
+  border-radius: 10px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+  text-align: left;
+  color: #ffffff;
 }
+
 
 /* Form header */
 .container h3 {
@@ -148,6 +166,19 @@ input[type="file"].form-control {
   background-color: #143f82;
   color: #fff;
 }
+
+
+
+@media (max-width: 400px) {
+  .container {
+    width: 95%;
+    padding: 15px 20px;
+  }
+}
+
+
+
+
 
 
     </style>

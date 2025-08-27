@@ -174,10 +174,10 @@ router.post("/login", async (req, res) => {
     });
 
     if (user.role === "admin") {
-      return res.render("Admin-Panel/admin", { username: user.username });
+      return res.render("Admin-panel/admin", { username: user.username });
     }
 
-    res.redirect("/");
+    res.redirect("/tracking/dashboard");
 
   } catch (error) {
     console.error("Login error:", error);

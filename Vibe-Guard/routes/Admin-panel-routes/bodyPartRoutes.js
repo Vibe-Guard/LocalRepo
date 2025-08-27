@@ -8,7 +8,7 @@ const isAuthenticated = require('../../middlewares/admin-middleware');
 
 
 router.get('/add',isAuthenticated, (req, res) => {
-  res.render('Admin-Panel/BodyPart/addBodyPart'); 
+  res.render('Admin-panel/BodyPart/addBodyPart'); 
 });
 
 
@@ -64,7 +64,7 @@ router.get('/read', async (req, res) => {
     const totalPages = Math.ceil(total / limit);
 
     // Pass pagination info along with bodyParts to the view
-    res.render('Admin-Panel/BodyPart/BodyParts-read', { 
+    res.render('Admin-panel/BodyPart/BodyParts-read', { 
       layout: true, 
       bodyParts,
       currentPage: page,
@@ -89,7 +89,7 @@ router.get('/edit/:id',isAuthenticated, async (req, res) => {
       return res.status(404).send("Body part not found.");
     }
 
-    res.render('Admin-Panel/BodyPart/editBodyPart', { bodyPart });
+    res.render('Admin-panel/BodyPart/editBodyPart', { bodyPart });
   } catch (error) {
     console.error(error);
     res.status(500).send("Error loading the body part for editing.");
