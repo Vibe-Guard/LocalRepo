@@ -177,7 +177,7 @@ router.post("/login", async (req, res) => {
       return res.render("Admin-Panel/admin", { username: user.username });
     }
 
-    res.redirect("/");
+    res.redirect("/tracking/dashboard");
 
   } catch (error) {
     console.error("Login error:", error);
