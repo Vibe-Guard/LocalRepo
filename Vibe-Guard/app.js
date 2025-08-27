@@ -2,6 +2,7 @@ const express = require("express");
 const expressLayout = require("express-ejs-layouts");
 const app = express();
 const cookieParser = require("cookie-parser");
+const path = require("path");
 const cors = require("cors");
 app.use(cors());
 
@@ -12,6 +13,7 @@ app.use(express.static("public"));
 app.use(expressLayout);
 app.use(cookieParser());
 
+app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 
 //Routes
