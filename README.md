@@ -125,45 +125,53 @@ Accessible only with **admin credentials**:
 
 ---
 
-##  Project Structure  
+## 📂 Project Structure  
 
 VibeGuard/
-├── public/           # Static files (CSS, JS, Images)
-├── views/            # EJS/Views for frontend rendering
-│   ├── home.ejs
-│   ├── dashboard.ejs
-│   ├── symptomChecker.ejs
-│   └── admin-panel/
-├── routes/           # Express routes (user, admin, doctors, symptoms)
-├── models/           # Mongoose models (User, Doctor, Symptoms, etc.)
-├── controllers/      # Business logic
-├── middlewares/      # Auth & session middleware
-├── utils/            # Helper functions (PDF, Email, etc.)
-├── app.js            # Main entry file
+├── public/ # Static files (CSS, JS, Images)
+├── views/ # EJS views for frontend rendering
+│ ├── home.ejs
+│ ├── dashboard.ejs
+│ ├── symptomChecker.ejs
+│ └── admin-panel/
+├── routes/ # Express routes (user, admin, doctors, symptoms)
+├── models/ # Mongoose models (User, Doctor, Symptoms, etc.)
+├── controllers/ # Business logic
+├── middlewares/ # Auth & session middleware
+├── utils/ # Helper functions (PDF, Email, etc.)
+├── app.js # Main entry file
 ├── package.json
 └── README.md
+
+
+---
+
+## ⚙️ Installation  
+
+### Live Run
+- https://vibe-guard-iq2q.onrender.com
+
+
+### Run Locally
+
+```bash
+# Clone the repository
+git clone https://github.com/<your-username>/VibeGuard.git
+
+# Navigate to project folder
+cd VibeGuard
+
+# Install dependencies
+npm install
+
+# Add your environment variables (MongoDB URI, Email credentials, JWT Secret)
+touch .env
+
+# Run locally
+nodemon app.js
 
 ---
 
 
-##  Installation
-
-### Run Locally
-
-- Clone the repository
-git clone https://github.com/<your-username>/VibeGuard.git
-
-- Navigate to project folder
-cd VibeGuard
-
-- Install dependencies
-npm install
-
-- Run locally
-nodemon app.js
-
-### Live Link
-
-- https://vibe-guard-iq2q.onrender.com
 
 
