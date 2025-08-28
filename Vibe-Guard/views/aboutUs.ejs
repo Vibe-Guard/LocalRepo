@@ -126,7 +126,7 @@
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ms-auto">
             <li class="nav-item">
-              <a class="nav-link active" href="/">Home</a>
+              <a class="nav-link " href="/">Home</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="/login/register">Register</a>
@@ -140,7 +140,7 @@
               <a class="nav-link" href="/tracking/dashboard">UserDashboard</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/about-Us">About Us</a>
+              <a class="nav-link active" href="/about-Us">About Us</a>
             </li>
           </ul>
         </div>
@@ -210,7 +210,7 @@
 
 
 
- <section class="client_section layout_padding" style="display: flex; justify-content: center; align-items: center; height: 100vh;  background-color: #f4f4f9;">
+ <section class="client_section layout_padding" style="display: flex; justify-content: center; align-items: center; min-height: 100vh;  background-color: #f4f4f9;">
       <form class="contact-form mt-2" style="background: #3a687d; border-radius: 10px; box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); padding: 30px; max-width: 600px; width: 100%; border: 2px solid #ddd; margin-bottom:30px;">
         <h2  style="text-align: left; font-family: Arial, sans-serif; color: #f5f0f0; font-weight: bold;">Contact Us</h2>
         <div class="row mb-3">
@@ -234,79 +234,81 @@
     </section>
     
   
-    <section class="info_section layout_padding2">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-6 col-lg-3 info_col">
-            <div class="info_contact">
-              <h4>
-                Address
-              </h4>
-              <div class="contact_link_box">
-                <a href="">
-                  <i class="fa fa-map-marker" aria-hidden="true"></i>
-                  <span>
-                   Elm Street
-Apt 56B
-Springfield,
-United States
-                  </span>
-                </a>
-                <a href="">
-                  <i class="fa fa-phone" aria-hidden="true"></i>
-                  <span>
-                    Call +01 1234567890
-                  </span>
-                </a>
-                <a href="">
-                  <i class="fa fa-envelope" aria-hidden="true"></i>
-                  <span>
-                    vibeguard@gmail.com
-                  </span>
-                </a>
-              </div>
-            </div>
-            
-          </div>
-          <div class="col-md-6 col-lg-3 info_col">
-            <div class="info_detail">
-              <h4>
-                Info
-              </h4>
-              <p style="color: white;">
-                VibeGuard: Your personal assistant!              </p>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-2 mx-auto info_col">
-            <div class="info_link_box">
-              <h4>
-                Links
-              </h4>
-              <div class="info_links">
-                <a class="active" href="index.html">
-                  Home
-                </a>
-                <a class="" href="about.html">
-                  Feedback
-                </a>
 
-              </div>
+
+  
+    <!-- footer section -->
+<section class="info_section layout_padding2" style="background-color: #0d1a2d;">
+  <div class="container">
+    <div class="row gy-4">
+
+      <!-- Contact -->
+      <div class="col-md-6 col-lg-3 info_col">
+        <div class="info_contact">
+          <h4 class="text-white mb-3">Contact</h4>
+          <div class="contact_link_box d-flex flex-column gap-2">
+            <div>
+              <i class="fa fa-map-marker" aria-hidden="true"></i>
+              <span class="ms-2">Based in Pakistan</span>
             </div>
+            <div>
+              <i class="fa fa-phone" aria-hidden="true"></i>
+              <span class="ms-2">Support available online</span>
+            </div>
+            <a href="mailto:info@vibeguard.com">
+              <i class="fa fa-envelope" aria-hidden="true"></i>
+              <span class="ms-2">vibeguard7@gmail.com</span>
+            </a>
           </div>
         </div>
       </div>
-    </section>
-  
-    <!-- end info section -->
-  
-    <!-- footer section -->
-    <section class="footer_section">
-      <div class="container">
-        <p>
-          &copy; <span id="displayYear"></span> All Rights Reserved 
-        </p>
+
+      <!-- About -->
+      <div class="col-md-6 col-lg-3 info_col">
+        <div class="info_detail">
+          <h4 class="text-white mb-3">About VibeGuard</h4>
+          <p style="color: white;">
+            Your smart health & mental wellness companion. Helping you track, relax, and grow, all in one space.
+          </p>
+        </div>
       </div>
-    </section>
+
+      <!-- Quick Links -->
+      <div class="col-md-6 col-lg-2 info_col">
+        <div class="info_link_box">
+          <h4 class="text-white mb-3">Quick Links</h4>
+          <div class="info_links d-flex flex-column gap-2">
+            <a href="/">Home</a>
+            <a href="/symptomschecker/read">Symptom Checker</a>
+            <a href="/doctor-list">Find Doctors Near You</a>
+            <a href="/about-Us">About Us</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Social -->
+      <div class="col-md-6 col-lg-4 info_col">
+        <h4 class="text-white mb-3">Stay Connected</h4>
+        <p style="color: white;">Follow us on social media for updates and motivation!</p>
+        
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Footer Bottom -->
+<section class="footer_section" style="background-color: #0a1627; padding: 15px 0;">
+  <i class="fab fa-twitter text-white fs-5 mx-2"></i>
+      <i class="fab fa-instagram text-white fs-5 mx-2"></i>
+      <i class="fab fa-linkedin text-white fs-5 mx-2"></i>
+  <div class="container text-center">
+    <p class="text-white m-0">
+      &copy; <span id="displayYear"></span> VibeGuard. All Rights Reserved.
+    </p>
+  </div>
+</section>
+
 
     <script>
   document.addEventListener("DOMContentLoaded", () => {

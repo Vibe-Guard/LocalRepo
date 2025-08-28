@@ -193,8 +193,9 @@ router.post("/login", async (req, res) => {
 // Logout User
 router.get("/logout", (req, res) => {
   res.cookie("token", "", { maxAge: 0 });
-  res.redirect("/login/register");
+  res.redirect("/");
 });
+
 
 // Reset Password
 router.post("/resetpassword", async (req, res) => {
