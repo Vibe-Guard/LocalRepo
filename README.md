@@ -125,7 +125,7 @@ Accessible only with **admin credentials**:
 
 ---
 
-## 📂 Project Structure  
+##  Project Structure  
 
 ```
 VibeGuard/
@@ -148,7 +148,7 @@ VibeGuard/
 
 ---
 
-## ⚙️ Installation  
+##  Installation  
 
 ### Live Run
 - https://vibe-guard-iq2q.onrender.com
