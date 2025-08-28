@@ -170,8 +170,3 @@ touch .env
 # Run locally
 nodemon app.js
 
----
-
-
-
-
