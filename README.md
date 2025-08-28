@@ -127,6 +127,7 @@ Accessible only with **admin credentials**:
 
 ## 📂 Project Structure  
 
+```
 VibeGuard/
 ├── public/ # Static files (CSS, JS, Images)
 ├── views/ # EJS views for frontend rendering
@@ -142,6 +143,7 @@ VibeGuard/
 ├── app.js # Main entry file
 ├── package.json
 └── README.md
+```
 
 
 ---
