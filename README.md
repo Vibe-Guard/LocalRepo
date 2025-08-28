@@ -158,7 +158,7 @@ VibeGuard/
 
 ```bash
 # Clone the repository
-git clone https://github.com/<your-username>/VibeGuard.git
+git clone https://github.com/Vibe-Guard/LocalRepo.git
 
 # Navigate to project folder
 cd VibeGuard
